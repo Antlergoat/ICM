@@ -8,6 +8,7 @@ workspaces/workspace-builder/stages/*/output/*
 
 # Claude Code local settings
 .claude/
+.mcp.json
 
 # Node dependencies
 node_modules/
