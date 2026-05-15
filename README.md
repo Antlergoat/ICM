@@ -248,6 +248,30 @@ git pull
 
 The updated bible is immediately available to all workspaces on the next run. No other changes needed.
 
+### In-environment change notifications (optional)
+
+Claude Code can alert you inside the session whenever the AI modifies a world bible file. Add this hook to `.claude/settings.json` in the project root:
+
+```json
+{
+  "hooks": {
+    "PostToolUse": [
+      {
+        "matcher": "Write|Edit",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "py -c \"import sys,json; d=json.load(sys.stdin); p=d.get('tool_input',{}).get('file_path',''); fname=p.replace('\\\\\\\\','/').split('/')[-1]; print(json.dumps({'systemMessage':'World bible file changed: '+fname+' -- partners should pull before their next session.'})) if 'world-bible' in p else None\" 2>/dev/null || true"
+          }
+        ]
+      }
+    ]
+  }
+}
+```
+
+This fires silently for all other file edits and only surfaces when a `world-bible/` file is written. Each team member adds this to their own `.claude/settings.json` — it is gitignored by design so local hook preferences stay personal.
+
 ---
 
 ## Adding a New Workspace
