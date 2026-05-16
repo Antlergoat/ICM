@@ -18,10 +18,11 @@ workspace-builder/
 │   ├── world-bible-wiring-guide.md   (how to wire world-bible into scaffolded workspaces)
 │   └── conventions-reference.md      (pointer to _core/CONVENTIONS.md)
 └── stages/
-    ├── 01-discovery/      (understand the workspace purpose and world connection)
-    ├── 02-mapping/        (define stage contracts and bible file dependencies)
-    ├── 03-scaffolding/    (generate all workspace files with world-bible wiring)
-    └── 04-validation/     (verify conventions compliance and bible path correctness)
+    ├── 01-discovery/            (understand the workspace purpose and world connection)
+    ├── 02-mapping/              (define stage contracts and bible file dependencies)
+    ├── 03-scaffolding/          (generate all workspace files with world-bible wiring)
+    ├── 04-questionnaire-design/ (build the onboarding questionnaire for the new workspace)
+    └── 05-validation/           (verify conventions compliance and bible path correctness)
 ```
 
 ## Triggers
@@ -29,7 +30,7 @@ workspace-builder/
 | Keyword | Action |
 |---------|--------|
 | `setup` | Run onboarding -- describe the workspace you want to build |
-| `status` | Show pipeline completion for all four stages |
+| `status` | Show pipeline completion for all five stages |
 
 ## Routing
 
@@ -38,8 +39,9 @@ workspace-builder/
 | Start building a new workspace | `stages/01-discovery/CONTEXT.md` |
 | Define stage contracts and bible dependencies | `stages/02-mapping/CONTEXT.md` |
 | Generate the workspace files | `stages/03-scaffolding/CONTEXT.md` |
-| Validate the output workspace | `stages/04-validation/CONTEXT.md` |
+| Design the onboarding questionnaire | `stages/04-questionnaire-design/CONTEXT.md` |
+| Validate the output workspace | `stages/05-validation/CONTEXT.md` |
 
 ## Stage Handoffs
 
-01-discovery output feeds 02-mapping. 02-mapping output feeds 03-scaffolding. 03-scaffolding output feeds 04-validation. Edit any output file between stages -- the next stage picks up your changes.
+01-discovery output feeds 02-mapping. 02-mapping output feeds 03-scaffolding. 03-scaffolding output feeds 04-questionnaire-design. 04-questionnaire-design output feeds 05-validation. Edit any output file between stages -- the next stage picks up your changes.

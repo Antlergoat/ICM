@@ -18,9 +18,9 @@ Generate all files for the new workspace with world-bible references pre-wired. 
 
 1. Read all Inputs
 2. Generate the folder structure as a tree -- confirm with user before writing any files (checkpoint)
-3. Generate files in this order: CLAUDE.md, CONTEXT.md, setup/questionnaire.md, stage CONTEXT.md files, reference stubs, .gitkeep files
+3. Generate files in this order: CLAUDE.md, CONTEXT.md, setup/questionnaire.md (world-bible prerequisite block only — role-specific questions are Stage 04's responsibility), stage CONTEXT.md files, reference stubs, .gitkeep files
 4. CLAUDE.md: include a Prerequisite section (see wiring guide)
-5. setup/questionnaire.md: open with the world-bible prerequisite check block (see wiring guide), then role-specific questions
+5. setup/questionnaire.md: seed only the world-bible prerequisite check block (see wiring guide). Do not design role-specific questions -- those are Stage 04's responsibility.
 6. Each stage CONTEXT.md Inputs table: wire in world-bible files from the stage contracts using `../../../../world-bible/[file].md` paths
 7. Create skills/ folder if skills were selected -- copy local skills or note clone commands for GitHub skills
 8. Write setup guides in stage references/ for any system-level tool prerequisites
@@ -52,4 +52,4 @@ Generate all files for the new workspace with world-bible references pre-wired. 
 
 | Artifact | Location | Format |
 |----------|----------|--------|
-| Generated workspace | `output/[workspace-name]/` | Complete folder tree, world-bible wired, ready for questionnaire design |
+| Generated workspace | `output/[workspace-name]/` | Complete folder tree, world-bible wired, questionnaire pre-seeded with prerequisite block. Ready for Stage 04 questionnaire design. |
